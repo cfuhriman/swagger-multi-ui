@@ -1,0 +1,93 @@
+# Swagger Multi UI
+
+## INFO
+Serve multiple swagger ui instances on a single page applicate.  Designed to be embedded as an npm module in other projects
+
+## USAGE
+================
+### Adding library project
+Example for expressjs
+- install:
+    ```javascript
+    npm install --save cfuhriman/swagger-multi-ui
+    ```
+- Add javascript and stylesheet to project
+    > Option 1 (Recommended): use a bundler and use as static assets.  Example using parcelJs and expressjs:
+    ```javascript
+        # swagger-ui-multi.js
+        import 'cfuhriman/swagger-multi-ui/dist/index.css';
+        require("cfuhriman/swagger-multi-ui");
+    ```
+    ```javascript
+        # expressjs app.js
+        app.use(express.static(`${__dirname}/../dist`));  // or whatever folder the bundler exports to
+    ```
+
+    > Option 2 (Not Recommended): Add the dist folder as static assets directy.  Example using expressjs:
+    ```javascript
+    app.use(express.static(`${__dirname}/../node_modules/cfuhriman/swagger-multi-ui/dist`));
+    ```
+### HTML
+- reference the files in your html file (change names according to your option)
+    ```html
+    <html>
+    <head>
+        ...
+        <link href="/swagger-ui-multi.css" rel="stylesheet">
+    </head>
+    <body>
+        <noscript>
+        You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root"></div>
+        <script src="/swagger-ui-multi.js"></script>
+    </html>
+    ```
+
+### ROUTES
+- Render the html file under the route that makes sense to your project setup, e.g., in express you can use it as your base route by placing it in the public static folder as index.html, or use a rendering engine such as handlebars or pug
+
+- create route "/api-definitions" that returns a json response in same format as the example below.  The url references the endpoint that serves the swagger definition and can be hosted on the same server or a remote url.
+   ```javascript
+   const definitions = {
+            "name": "xxxx API Suite",
+            "description": "For..",
+            "landingImage": "/images/cpm-logo.png",
+            "logo": "/images/cpm-logo.png",
+            "apis": [
+                {
+                    "name": "My API 1",
+                    "description": "My API 1 does...",
+                    "url": "/api-1"
+                },
+                {
+                    "name": "My API 2",
+                    "description": "My API 2 does...",
+                    "url": "/api-2"
+                },
+                {
+                    "name": "My API 3",
+                    "description": "My API 3 does...",
+                    "url": "/api-3"
+                }
+            ]
+        };
+
+    apt.get('api-definitions', (req, res) => {
+        res.json(definitions);
+    })
+    ```
+### Swagger files
+
+
+## REFERENCE
+This project was based on the starter template from nWright.
+
+https://github.com/nate01776/swaggerhub-doc-portal
+
+ Primary changes include:
+- Removed all references to all external api calls, such as swaggerhub
+- Refactored the format of the api definitions into a more simplified format than SwaggerHub
+- Rough styling choices
+- Defer all branding to be dynamically provided
+- Added landing page in order to remove hard coded dependency for a default endpoing (presents a start button that links to the first API definition returned)
