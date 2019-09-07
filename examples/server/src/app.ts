@@ -2,10 +2,8 @@
 import { Router, Request, Response, NextFunction } from "express";
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import { json, urlencoded } from "body-parser";
-
 import { ApiRouting } from "./routes";
-import path from "path";
+
 class App {
 
     public app: express.Application;
