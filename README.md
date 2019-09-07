@@ -12,7 +12,11 @@ Example for expressjs
     npm install --save cfuhriman/swagger-multi-ui
     ```
 - Add javascript and stylesheet to project
-    > Option 1 (Recommended): use a bundler and use as static assets.  Example using parcelJs and expressjs:
+    > Option 1: Add the dist folder as static assets directy.  Example using expressjs:
+    ```javascript
+    app.use(express.static(`${__dirname}/../node_modules/@cfuhriman/swagger-multi-ui/dist`));
+
+    > Option 1: use a bundler and use as static assets.  Example using parcelJs and expressjs:
     ```javascript
         # swagger-ui-multi.js
         import 'cfuhriman/swagger-multi-ui/dist/index.css';
@@ -23,9 +27,7 @@ Example for expressjs
         app.use(express.static(`${__dirname}/../dist`));  // or whatever folder the bundler exports to
     ```
 
-    > Option 2 (Not Recommended): Add the dist folder as static assets directy.  Example using expressjs:
-    ```javascript
-    app.use(express.static(`${__dirname}/../node_modules/cfuhriman/swagger-multi-ui/dist`));
+
     ```
 ### HTML
 - reference the files in your html file (change names according to your option)
@@ -57,17 +59,14 @@ Example for expressjs
             "apis": [
                 {
                     "name": "My API 1",
-                    "description": "My API 1 does...",
                     "url": "/api-1"
                 },
                 {
                     "name": "My API 2",
-                    "description": "My API 2 does...",
                     "url": "/api-2"
                 },
                 {
                     "name": "My API 3",
-                    "description": "My API 3 does...",
                     "url": "/api-3"
                 }
             ]
@@ -77,17 +76,13 @@ Example for expressjs
         res.json(definitions);
     })
     ```
-### Swagger files
-
 
 ## REFERENCE
-This project was based on the starter template from nWright.
+This project was inspired by the starter template from nWright https://github.com/nate01776/swaggerhub-doc-portal
 
-https://github.com/nate01776/swaggerhub-doc-portal
 
- Primary changes include:
-- Removed all references to all external api calls, such as swaggerhub
-- Refactored the format of the api definitions into a more simplified format than SwaggerHub
-- Rough styling choices
-- Defer all branding to be dynamically provided
-- Added landing page in order to remove hard coded dependency for a default endpoing (presents a start button that links to the first API definition returned)
+## Want to contribute?
+Pull requests welcome.   Areas of known need include:
+- UI enhancements
+- Improvements to React code (not a React developer)
+- Improvements to example, or additional examples

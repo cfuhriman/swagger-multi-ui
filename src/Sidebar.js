@@ -27,18 +27,9 @@ const Sidebar = props => {
         }
     }
 
-    function resetApi() {
-        try{
-            updateDefinitionLink(null)
-        } catch (err) {
-            alert("Unable to get default API Link");
-        }
-    }
-
-
   return (
     <div className="side-bar">
-        <div className="side-bar-header" onClick={() => resetApi()}>
+        <div className="side-bar-header">
             <img style={imageStyle} src={logo} alt="logo"/>
         </div>
         <div className="side-bar-body">

@@ -1,0 +1,29 @@
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - BearerAuth: []
+paths:
+  /api/v1/auth/user:
+    post:
+      tags:
+        - Auth
+      summary: Username/Password based provisioning of signed JWT for subsequent requests
+      description: >-
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#definitions/LoginRequest'
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '422':
+          $ref: '#/responses/InvalidInput'
+        '500':
+          $ref: '#/responses/ServerError'

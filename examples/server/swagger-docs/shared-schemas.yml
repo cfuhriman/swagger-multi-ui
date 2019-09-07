@@ -1,0 +1,63 @@
+parameters:
+  stateAbbr:
+    name: stateAbbr
+    in: path
+    required: true
+    schema:
+      type: string
+      enum: [AL, AK, AZ, AR, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY]
+definitions:
+  AuthRequest:
+    type: object
+    properties:
+      client_id:
+        type: string
+        required: true
+        description: Public API id
+        example: String
+      client_secret:
+        type: string
+        required: true
+        description: Secret API key
+        example: String
+  LoginRequest:
+    type: object
+    properties:
+      username:
+        type: string
+        required: true
+        description: Username
+        example: myusername
+      password:
+        type: string
+        required: true
+        description: Password
+        example: mypassword
+  StateQuery:
+    type: object
+    properties:
+      city:
+        required: false
+        description: 'City to be searched'
+        type: string
+      zip:
+        required: false
+        description: Zip Code
+        type: string
+      county:
+        type: string
+        required: true
+        description: County
+responses:
+  IncorrectCredentials:
+    description: client_id or client_secret are incorrect
+  UnauthorizedError:
+    description: Bearer token is invalid or missing
+  InvalidInput:
+    description: Invalid or incomplete input
+  RequestError:
+    description: Request is incorrect
+  ServerError:
+    description: Internal Server Error
+  Success:
+    description: Success

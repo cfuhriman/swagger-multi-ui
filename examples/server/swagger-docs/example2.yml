@@ -1,0 +1,37 @@
+paths:
+  /api/v1/example2/{stateAbbr}:
+    post:
+      summary: Example for a post request
+      description: >-
+        Example for a post request
+      tags:
+        - Example 2
+      parameters:
+        - $ref: '#/parameters/stateAbbr'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/StateQuery'
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '422':
+          $ref: '#/responses/InvalidInput'
+    get:
+      summary: Example for a get request
+      description: >-
+        Example for a get request
+      tags:
+        - Example 2
+      parameters:
+        - $ref: '#/parameters/stateAbbr'
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '422':
+          $ref: '#/responses/InvalidInput'
