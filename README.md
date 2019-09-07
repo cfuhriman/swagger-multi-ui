@@ -15,8 +15,9 @@ Example for expressjs
     > Option 1: Add the dist folder as static assets directy.  Example using expressjs:
     ```javascript
     app.use(express.static(`${__dirname}/../node_modules/@cfuhriman/swagger-multi-ui/dist`));
+    ```
 
-    > Option 1: use a bundler and use as static assets.  Example using parcelJs and expressjs:
+    > Option 2: use a bundler and use as static assets.  Example using parcelJs and expressjs:
     ```javascript
         # swagger-ui-multi.js
         import 'cfuhriman/swagger-multi-ui/dist/index.css';
