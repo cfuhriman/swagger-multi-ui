@@ -73,7 +73,7 @@ Example for expressjs
             ]
         };
 
-    apt.get('api-definitions', (req, res) => {
+    apt.get('/api-definitions', (req, res) => {
         res.json(definitions);
     })
     ```
