@@ -1,0 +1,41 @@
+{
+  "name": "swagger-multi-ui",
+  "version": "0.1.1",
+  "description": "Consolidate multiple swagger ui instances on a single page",
+  "main": "./dist",
+  "dependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "swagger-ui": "^3.19.5"
+  },
+  "scripts": {
+    "parcel-build": "parcel src/index.js  --no-minify",
+    "start": "parcel ./src/index.js",
+    "prepare": "npm run build",
+    "build": "parcel-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cfuhriman/swagger-multi-ui.git"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "parcel-bundler": "^1.12.3"
+  }
+}
