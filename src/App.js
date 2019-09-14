@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   swaggerhub() {
-    let url = "/api-definitions/";
+    let url = "api-definitions";
     return fetch(url, {
         method: "GET"
     }).then(response => {

@@ -51,6 +51,9 @@ Example for expressjs
 - Render the html file under the route that makes sense to your project setup, e.g., in express you can use it as your base route by placing it in the public static folder as index.html, or use a rendering engine such as handlebars or pug
 
 - create route "/api-definitions" that returns a json response in same format as the example below.  The url references the endpoint that serves the swagger definition and can be hosted on the same server or a remote url.
+
+Note - these settings use absolute routes.  If using relative routes enable trailing hash on server
+
    ```javascript
    const definitions = {
             "name": "xxxx API Suite",
