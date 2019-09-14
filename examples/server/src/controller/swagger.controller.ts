@@ -70,6 +70,10 @@ export class SwaggerController {
                     "name": "Example 3",
                     "url": "/example-3"
                 },
+                {
+                    "name": "Example External",
+                    "url": "https://petstore.swagger.io/v2/swagger.json"
+                },
             ]
         };
         res.json(data);
