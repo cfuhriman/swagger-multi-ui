@@ -1,6 +1,6 @@
 {
   "name": "@cfuhriman/swagger-multi-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Consolidate multiple swagger ui instances on a single page",
   "main": "./dist",
   "dependencies": {
