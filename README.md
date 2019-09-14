@@ -28,11 +28,9 @@ Example for expressjs
         app.use(express.static(`${__dirname}/../dist`));  // or whatever folder the bundler exports to
     ```
 
-
-    ```
 ### HTML
 - reference the files in your html file (change names according to your option)
-    ```html
+```html
     <html>
     <head>
         ...
@@ -45,7 +43,7 @@ Example for expressjs
         <div id="root"></div>
         <script src="/swagger-ui-multi.js"></script>
     </html>
-    ```
+```
 
 ### ROUTES
 - Render the html file under the route that makes sense to your project setup, e.g., in express you can use it as your base route by placing it in the public static folder as index.html, or use a rendering engine such as handlebars or pug
@@ -54,7 +52,7 @@ Example for expressjs
 
 Note - these settings use absolute routes.  If using relative routes enable trailing hash on server
 
-   ```javascript
+```javascript
    const definitions = {
             "name": "xxxx API Suite",
             "description": "For..",
@@ -79,7 +77,8 @@ Note - these settings use absolute routes.  If using relative routes enable trai
     apt.get('/api-definitions', (req, res) => {
         res.json(definitions);
     })
-    ```
+
+```
 
 ## REFERENCE
 This project was inspired by the starter template from nWright https://github.com/nate01776/swaggerhub-doc-portal
